@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-loading',
@@ -9,17 +10,20 @@ export class LoadingComponent implements OnInit {
 
   percentage:number = 0;
 
-  constructor() { }
+  constructor(public router:Router) { }
 
   ngOnInit(): void {
     this.initilizePercentage();
   }
 
+  // Inicia a contagem da porcentagem da tela de loading
   initilizePercentage(){
     setInterval(()=>{
       if(this.percentage<100){
         this.percentage++
-        console.log(this.percentage++);
+      }
+      else{
+        this.router.navigate(['home']);
       }
     },50)
   }
