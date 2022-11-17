@@ -2,6 +2,7 @@ import { Component, OnInit, TemplateRef } from '@angular/core';
 import { Router } from '@angular/router';
 import { BsModalRef, BsModalService, ModalOptions } from 'ngx-bootstrap/modal';
 import movieData from '../movies.json';
+import { MoviesService } from '../movies.service';
 
 @Component({
   selector: 'app-home',
@@ -20,7 +21,10 @@ export class HomeComponent implements OnInit {
 
   title?: string;
 
-  constructor(public router:Router,private modalService: BsModalService) { }
+  constructor(
+    public router:Router,
+    private modalService: BsModalService,
+    public movieService:MoviesService) { }
 
   ngOnInit(): void {
     console.log(this.movies)
@@ -54,7 +58,10 @@ export class HomeComponent implements OnInit {
   }
 
   onSubmit(form:any){
-    console.log(form);
+    console.log(form.value);
+    this.movieService.createMovie(form.value).subscribe((data)=>{
+      console.log(data)
+    })
   }
 
   handleFileInput(event:any) {

@@ -11,8 +11,9 @@ export class MoviesService {
   constructor(private http: HttpClient) { }
 
 
-  createMovie(): Observable<any>{
-    return this.http.post("http://localhost:4200/movie",{});
+  createMovie(form:any): Observable<any>{
+    console.log(form)
+    return this.http.post("http://localhost:4200/movie",form);
   }
 
   getAllMovies(): Observable<any>{
