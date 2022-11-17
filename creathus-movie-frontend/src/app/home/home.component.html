@@ -1,55 +1,72 @@
-
-<div >
-    <div class="container">
-        <h3 style="margin-top:50px">Populares</h3>
-        <div class="row" style="margin-top:35px;">
-          <div class="col-md-2">
-            <img src="../../assets/capas/pantera-negra-wakanda-forever.jpg" style="width: 140px;cursor: pointer;" (click)="redirectDetail('1')">
-            <h6 style="margin-left: 18px;">Pantera Negra</h6>
-          </div>
-          <div class="col-md-2">
-            <img src="../../assets/capas/adao-negro.jpg" style="width: 140px;cursor: pointer" (click)="redirectDetail('2')">
-            <h6 style="margin-left: 30px;">Adão negro</h6>
-          </div>
-          <div class="col-md-2">
-            <img src="../../assets/capas/halloween.jpg" style="width: 140px;cursor: pointer" (click)="redirectDetail('3')">
-            <h6 style="margin-left: 18px;">Halloween ends</h6>
-          </div>
-          <div class="col-md-2">
-            <img src="../../assets/capas/mundo-estranho.jpg" style="width: 140px;cursor: pointer" (click)="redirectDetail('4')">
-            <h6 style="margin-left: 11px;">Mundo estranho</h6>
-          </div>
-          <div class="col-md-2">
-            <img src="../../assets/capas/sorria.jpg" style="width: 140px;cursor: pointer" (click)="redirectDetail('5')">
-            <h6 style="margin-left: 18px;">Sorria</h6>
-          </div>
-          <div class="col-md-2">
-            <img src="../../assets/capas/top-gun.jpg" style="width: 140px;cursor: pointer" (click)="redirectDetail('5')">
-            <h6>Top Gun</h6>
-          </div>
-          <div class="col-md-2">
-            <img src="../../assets/capas/thor-amor-e-trova.jpg" style="width: 140px;cursor: pointer" (click)="redirectDetail('6')">
-            <h6>Thor amor e trovao</h6>
-          </div>
-          <div class="col-md-2">
-            <img src="../../assets/capas/thor-amor-e-trova.jpg" style="width: 140px;cursor: pointer" (click)="redirectDetail('7')">
-            <h6>Thor amor e trovao</h6>
-          </div>
-          <div class="col-md-2">
-            <img src="../../assets/capas/thor-amor-e-trova.jpg" style="width: 140px;cursor: pointer" (click)="redirectDetail('8')">
-            <h6>Thor amor e trovao</h6>
-          </div>
-          <div class="col-md-2">
-            <img src="../../assets/capas/thor-amor-e-trova.jpg" style="width: 140px;cursor: pointer" (click)="redirectDetail('9')">
-            <h6>Thor amor e trovao</h6>
-          </div>
-          <div class="col-md-2">
-            <img src="../../assets/capas/thor-amor-e-trova.jpg" style="width: 140px;cursor: pointer" (click)="redirectDetail('10')">
-            <h6>Thor amor e trovao</h6> 
-          </div>
+<div class="container">
+    <h3 style="margin-top: 50px">Populares</h3>
+    <div class="row" style="margin-top: 35px">
+        <div class="col-md-2" *ngFor="let item of movies">
+            <img src="{{item.img}}" style="width: 140px; cursor: pointer"
+            (click)="openModalDetail(templateDetail,item)" />
+            <div>
+                <rating [max]="4" [readonly]="true"></rating>
+                <h6 style="margin-left: 18px">{{item.movie}}</h6>
+            </div>
         </div>
+      
     </div>
 </div>
 
+<a class="float">
+    <i class="bi bi-plus-lg" style="font-size: 42px;" (click)="openModal(template)"></i>
+</a>
+
+<ng-template #template style="background:#1c1c28!important">
+    <div class="modal-header">
+        <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="modalRef?.hide()">
+            <span aria-hidden="true" class="visually-hidden">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <form #f ="ngForm" (ngSubmit)="onSubmit(f)">
+            <div class="text-center">
+                <img width="100%" [src]="imageUrl ? imageUrl : avatarImage" class="image" style="max-width: 180px; max-height: 220px;">
+                <input  #Image type="file" (change)="handleFileInput($event)" style="margin-top:10px" style=""/>
+
+            </div>
+            
+            <div class="form-group">
+                <label for="autor">Autor</label>
+                <input name="autor" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                    placeholder="Enter email" ngModel>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Titulo</label>
+                <input name="titulo" type="titulo" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                    placeholder="Enter email" ngModel>
+            </div>
+            <div class="form-group">
+                <label for="email">Descricao</label>
+                <input name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                    placeholder="Enter email" ngModel>
+            </div>
+            <div class="text-center" style="margin-top:25px">
+                <button type="submit" class="btn btn-primary">Salvar</button>
+            </div>
+        </form>
+    </div>
+</ng-template>
 
 
+<ng-template #templateDetail style="background:#1c1c28!important">
+    <div class="modal-header">
+        <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="modalRef?.hide()">
+            <span aria-hidden="true" class="visually-hidden">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <form>
+            <div class="text-center">
+                <!-- <img width="100%" [src]="imageUrlDetail" class="image" style="max-width: 180px; max-height: 220px;"> -->
+                <h3>{{title}}</h3>
+            </div>
+            
+        </form>
+    </div>
+</ng-template>

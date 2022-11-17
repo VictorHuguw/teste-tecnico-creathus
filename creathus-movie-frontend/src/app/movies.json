@@ -1,0 +1,32 @@
+[
+    {
+        "id": "1",
+        "movie": "Pantera negra para sempre",
+        "img": "../assets/capas/pantera-negra-wakanda-forever.jpg"
+    },
+    {
+        "id": "2",
+        "movie": "Adaop negro",
+        "img": "../assets/capas/adao-negro.jpg"
+    },
+    {
+        "id": "3",
+        "movie": "Halloween ends",
+        "img": "../assets/capas/halloween.jpg"
+    },
+    {
+        "id": "4",
+        "movie": "Mundo Estranho",
+        "img": "../assets/capas/mundo-estranho.jpg"
+    },
+    {
+        "id": "5",
+        "movie": "Sorria",
+        "img": "../assets/capas/sorria.jpg"
+    },
+    {
+        "id": "6",
+        "movie": "Top Gun",
+        "img": "../assets/capas/top-gun.jpg"
+    }
+]

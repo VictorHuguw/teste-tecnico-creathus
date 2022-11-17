@@ -4,9 +4,44 @@
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-color: #11084C;
-    /* background-image: url("../../assets/background-home.png");
-    background-repeat: no-repeat;
-    background-size: cover; */
-    filter: brightness(0.8);
+    background-color: #1c1c28;
+    color: white;
+    /* background-image: url("../../assets/background-home.png"); */
+    /* background-repeat: no-repeat;
+    background-size: cover;
+    filter: brightness(25%); */
   }
+
+  .float{
+	position:fixed;
+	width:60px;
+	height:60px;
+	bottom:40px;
+	right:40px;
+	background-color:#0C9;
+	color:#FFF;
+	border-radius:50px;
+	text-align:center;
+	box-shadow: 2px 2px 3px #999;
+}
+
+.my-float{
+	margin-top:22px;
+}
+
+ .modal-header{
+  border-bottom: none;
+ }
+
+.modal-content:before{
+  background:#1c1c28!important
+}
+
+.inputfile {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
