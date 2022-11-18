@@ -9,20 +9,33 @@ Foi utilizado nodejs no backend pela facilidade de organização e estruturaçã
 
 1 - Nodejs
 
+```
 https://nodejs.org/en/
-
+```
 
 2 - Banco de dados Mysql e Mysql workbench
 
+```
 https://dev.mysql.com/downloads/installer/
-
+```
 
 ## Rodando servidor backend
 
 Para executar o projeto backend basta executar os comandos abaixo dentro da pasta raiz do projeto backend creathus-movie-backend
 
-* npm install
-* npm run start
+1 - Instalando dependencias
+```
+npm install
+```
+2 - Rodando migrations ou você pode optar por importar o banco de dados 
+```
+npx sequelize-cli db:migrate
+```
+
+3 - Rodando servidor
+```
+npm run start
+```
 
 Após executar os comandos o servidor será levantado no seguinte endereço
 

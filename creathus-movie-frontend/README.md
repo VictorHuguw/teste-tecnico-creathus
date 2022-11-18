@@ -52,7 +52,7 @@ $ npm install -g @angular/cli
 https://dev.mysql.com/downloads/installer/
 ```
 
-## Rodando projeto frontend
+## Rodando frontend
 
 Para executar o projeto frontend basta executar os comandos abaixo dentro da pasta raiz do projeto frontend creathus-movie-frontend
 
@@ -65,7 +65,7 @@ npm install
 npm run start
 ``` 
 
-#####Após executar os comandos o servidor será levantado no seguinte endereço
+Após executar os comandos o servidor será levantado no seguinte endereço
 
 ``` 
 https://localhost:4000
