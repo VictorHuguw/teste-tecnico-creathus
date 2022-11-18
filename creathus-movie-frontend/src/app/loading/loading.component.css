@@ -1,9 +1,27 @@
 :host{
-    background: #11084C;
+    background: #1c1c28;
     color:#fff;
     position: fixed;
     top:0;
     left: 0;
     width: 100vw;
     height: 100vh;
-  }
+}
+
+.logo-creathus{
+  width: 322px;
+  margin-bottom: 20px;
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.progressBar{
+  height: 35px;
+  border-radius: 10px;
+}

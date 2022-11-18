@@ -1,27 +1,73 @@
-# CreathusMovieFrontend
+## Tecnologias utilizadas e motivo
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.9.
+Angular CLI: 14.2.9
+Node: 18.12.1 (Unsupported)
+Package Manager: npm 8.19.2
+OS: win32 x64
 
-## Development server
+Angular: 14.2.10
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+```
+Package                         Version
+---------------------------------------------------------
+@angular-devkit/architect       0.1402.9
+@angular-devkit/build-angular   14.2.9
+@angular-devkit/core            14.2.9
+@angular-devkit/schematics      14.2.9
+@angular/cli                    14.2.9
+@schematics/angular             9.1.0
+rxjs                            7.5.7
+typescript                      4.7.4
+```
 
-## Code scaffolding
+Dependencias utilizadas
+```
+Package                         Version
+---------------------------------------------------------
+"bootstrap":                    "^5.1.3",
+"ngx-bootstrap":                "^9.0.0",
+"rxjs":                         "~7.5.0",
+"sweetalert2":                  "^11.6.9",
+```
+Foi utilizado angular no frontend pelo mesmo ja rodar em cima do typescript que nos facilita bastante no desenvolvimento além de podermos escrever nosso codigo mais limpo e robusto
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Build
+## Pré requisitos 
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+1 - Nodejs
 
-## Running unit tests
+```
+https://nodejs.org/en/
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+2 - Angular 
 
-## Running end-to-end tests
+```
+$ npm install -g @angular/cli
+```
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+2 - Banco de dados Mysql e Mysql workbench
 
-## Further help
+```
+https://dev.mysql.com/downloads/installer/
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Rodando projeto frontend
+
+Para executar o projeto frontend basta executar os comandos abaixo dentro da pasta raiz do projeto frontend creathus-movie-frontend
+
+1 - Instalando dependencias
+``` 
+npm install
+```
+2 - Rodando aplicação
+``` 
+npm run start
+``` 
+
+#####Após executar os comandos o servidor será levantado no seguinte endereço
+
+``` 
+https://localhost:4000
+``` 
+

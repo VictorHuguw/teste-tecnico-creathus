@@ -13,35 +13,26 @@ import Swal from 'sweetalert2';
 
 export class HomeComponent implements OnInit {
   
-  modalRef?: BsModalRef;
-  fileToUpload: any;
-  imageUrl: any;
-  imageUrlDetail: any;
-  avatarImage: any = "../../assets/image.png";
-  moviesStatic:any = movieData;  
-  movies:Array<any>;  
-
-  title?: string;
-
-  public myContent:string;
+  modalRef?: BsModalRef
+  fileToUpload: any
+  imageUrl: string
+  imageUrlDetail: string
+  avatarImage: string = "../../assets/image.png"
+  moviesStatic:Array<any> = movieData 
+  movies:Array<any>
+  title?: string
+  
+  public myContent:string
 
   @ViewChild('Image',{static:false}) Image:ElementRef
 
   constructor(
     public router:Router,
     public modalService: BsModalService,
-    public movieService:MoviesService) {
-      
-     }
+    public movieService:MoviesService) {}
 
   ngOnInit(): void {
-    console.log(this.moviesStatic)
-    this.getMovies();
-  }
-
-  redirectDetail(id:string){
-    this.router.navigate(['detalhes',id]);
-    console.log(id)
+    this.getMovies()
   }
 
   openModal(template: TemplateRef<any>) {
@@ -50,8 +41,6 @@ export class HomeComponent implements OnInit {
       ignoreBackdropClick: true
     });
   }
-
-  
   
   openModalDetail(template: TemplateRef<any>,item:any,staticData:any) {
 
@@ -88,10 +77,11 @@ export class HomeComponent implements OnInit {
           icon:'success',
           showConfirmButton:false,
           showCancelButton:false,
-          timer:3000
+          timer:2000
         })
         this.modalRef?.hide()
-        this.getMovies();
+        this.getMovies()
+        this.clearImage()
       }
 
     }, (error)=>{
@@ -101,9 +91,8 @@ export class HomeComponent implements OnInit {
           icon:'warning',
           showConfirmButton:false,
           showCancelButton:false,
-          timer:3000
+          timer:2000
         })
-        // Swal.fire("Ja existe um registro salvo com esses dados")
       }
     })
   }
@@ -114,20 +103,19 @@ export class HomeComponent implements OnInit {
 
   handleFileInput(event:any) {
     
-    this.fileToUpload = event.target.files[0];
-    let reader = new FileReader();
+    this.fileToUpload = event.target.files[0]
+    let reader = new FileReader()
     reader.onload = (event: any) => {
-      this.imageUrl = event.target.result;
+      this.imageUrl = event.target.result
     }
 
-    reader.readAsDataURL(this.fileToUpload);
+    reader.readAsDataURL(this.fileToUpload)
   
   }
 
   getMovies(){
     this.movieService.getAllMovies().subscribe((result)=>{
       this.movies = result.data
-      console.log(this.movies);
     })
   }
 

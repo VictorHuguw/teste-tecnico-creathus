@@ -1,43 +1,41 @@
-:host{
-    position: fixed;
-    top:0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: #1c1c28;
-    color: white;
-	/* margin-top:50px */
+:host {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	background-color: #1c1c28;
+	color: white;
+}
 
-  }
-
-  .float{
-	position:fixed;
-	width:60px;
-	height:60px;
-	bottom:40px;
-	right:40px;
-	background-color:#0C9;
-	color:#FFF;
-	border-radius:50px;
-	text-align:center;
+.float {
+	position: fixed;
+	width: 60px;
+	height: 60px;
+	bottom: 40px;
+	right: 40px;
+	background-color: #0C9;
+	color: #FFF;
+	border-radius: 50px;
+	text-align: center;
 	box-shadow: 2px 2px 3px #999;
 }
 
-img:hover{ 
+img:hover {
 	box-shadow: 1px 8px 20px black;
-	-webkit-transition:  box-shadow .2s ease-in;
- }
-
-.my-float{
-	margin-top:22px;
+	-webkit-transition: box-shadow .2s ease-in;
 }
 
- .modal-header{
-  border-bottom: none;
- }
+.my-float {
+	margin-top: 22px;
+}
 
-.modal-content:before{
-  background:#1c1c28!important
+.modal-header {
+	border-bottom: none;
+}
+
+.modal-content:before {
+	background: #1c1c28 !important
 }
 
 .inputfile {
@@ -50,22 +48,45 @@ img:hover{
 }
 
 ::ng-deep .modal-content {
-    background: #1c1c28 !important;
-    /* border: 1.5px solid grey; */
-    color: white;
+	background: #1c1c28 !important;
+	color: white;
 }
 
 .form-control {
-	background-color:#1c1c28;
-	color:white
+	background-color: #1c1c28;
+	color: white
 }
 
-.btn-primary{
+.btn-primary {
 	background: darkseagreen;
 	border: none;
 	width: 150px;
 }
 
-.form-group{
+.form-group {
 	margin-top: 15px;
+}
+
+.img-static{
+	width: 140px;
+	cursor: pointer;
+}
+.img-dynamic{
+	width: 140px; 
+	cursor: pointer
+}
+
+.img-create-modal{
+	max-width: 180px;
+	max-height: 220px;
+}
+
+.button-input-img{
+	display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+.image-modal-detail{
+	max-width: 200px;
+	max-height: 280px;
 }

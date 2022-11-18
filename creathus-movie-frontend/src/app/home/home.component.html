@@ -3,7 +3,7 @@
     <h3 style="margin-top: 50px">Populares</h3>
     <div class="row" style="margin-top: 35px">
         <div class="col-md-2" *ngFor="let item of moviesStatic">
-            <img src="../../assets/capas/{{item.img}}" style="width: 140px; cursor: pointer"
+            <img class="img-static" src="../../assets/capas/{{item.img}}"
                 (click)="openModalDetail(templateDetail,item,true)" />
             <div>
                 <rating [max]="4" [readonly]="true"></rating>
@@ -12,14 +12,13 @@
         </div>
 
         <div class="col-md-2" *ngFor="let item of movies" style="margin-top: 40px;">
-            <img src="../../assets/uploads/{{item.img}}" style="width: 140px; cursor: pointer"
+            <img class="img-dynamic" src="../../assets/uploads/{{item.img}}"
                 (click)="openModalDetail(templateDetail,item,false)" />
             <div>
                 <rating [max]="4" [readonly]="true"></rating>
                 <h6 >{{item.title}}</h6>
             </div>
         </div>
-
     </div>
 </div>
 
@@ -33,33 +32,28 @@
     <div class="modal-body">
         <form #f="ngForm" (ngSubmit)="onSubmit(f)">
             <div class="text-center">
-                <img width="100%" [src]="imageUrl ? imageUrl : avatarImage" class="image"
-                    style="max-width: 180px; max-height: 220px;">
+                <img width="100%" [src]="imageUrl ? imageUrl : avatarImage" class="img-create-modal">
                 <input id="img" #Image name="file" type="file" (change)="handleFileInput($event)"
                     style="margin-top:10px" style="display:none" />
-                <div style="display: flex;
-            justify-content: center;
-            margin-top: 20px;">
-                    <label class="btn btn-primary" for="img" style="display:block;width: 200px">Selecionar
-                        imagem</label>
+                <div class="button-input-img"   >
+                    <label class="btn btn-primary" for="img" style="display:block;width: 200px">Selecionar imagem</label>
                 </div>
             </div>
 
-
             <div class="form-group">
                 <label for="autor">Autor</label>
-                <input name="autor" type="text" class="form-control" id="exampleInputEmail1"
-                    aria-describedby="emailHelp" placeholder="Enter email" ngModel>
+                <input name="autor" type="text" class="form-control" id="autor"
+                    aria-describedby="autor" placeholder="Digite o nome do autor" ngModel>
             </div>
             <div class="form-group">
                 <label for="title">Titulo</label>
-                <input name="title" type="title" class="form-control" id="exampleInputEmail1"
-                    aria-describedby="emailHelp" placeholder="Enter email" ngModel>
+                <input name="title" type="title" class="form-control" id="title"
+                    aria-describedby="title" placeholder="Digite o nome do filme" ngModel>
             </div>
             <div class="form-group">
                 <label for="description">Descricao</label>
-                <input name="description" type="description" class="form-control" id="exampleInputEmail1"
-                    aria-describedby="emailHelp" placeholder="Enter email" ngModel>
+                <input name="description" type="description" class="form-control" id="Descricao"
+                    aria-describedby="Descricao" placeholder="Digite a descricao do filme" ngModel>
             </div>
             <div class="text-center" style="margin-top:25px">
                 <button type="submit" class="btn btn-primary">Salvar</button>
@@ -78,14 +72,11 @@
     <div class="modal-body">
         <form>
             <div class="text-center">
-                <!-- <img width="100%" [src]="imageUrlDetail" class="image" style="max-width: 180px; max-height: 220px;"> -->
-                <img src="./../assets/uploads/{{modalService.config.initialState.img}}" width="100%" class="image"
-                    style="max-width: 200px; max-height: 280px;">
+                <img class="image-modal-detail" src="./../assets/uploads/{{modalService.config.initialState.img}}" width="100%" >
                 <h4 style="margin-top: 20px;">{{ modalService.config.initialState.title }}</h4>
                 <h6>Autor : {{ modalService.config.initialState.autor }}</h6>
                 <h6>Descricao : {{ modalService.config.initialState.description }}</h6>
             </div>
-
         </form>
     </div>
 </ng-template>

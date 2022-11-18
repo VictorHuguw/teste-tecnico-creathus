@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
   templateUrl: './loading.component.html',
   styleUrls: ['./loading.component.css']
 })
+
 export class LoadingComponent implements OnInit {
 
   percentage:number = 0;
@@ -16,7 +17,7 @@ export class LoadingComponent implements OnInit {
     this.initilizePercentage();
   }
 
-  // Inicia a contagem da porcentagem da tela de loading
+  
   initilizePercentage(){
     setInterval(()=>{
       if(this.percentage<100){
