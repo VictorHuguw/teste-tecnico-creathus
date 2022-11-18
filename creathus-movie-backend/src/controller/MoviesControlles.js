@@ -3,12 +3,15 @@ const Movies = require("../model/Movie");
 module.exports = {
 
   async getMovies(req, res) {
+    
     const movies = await Movies.findAll();
+
     res.status(200).json({ message: "success", data: movies, code: 200 });
+
   },
 
   async createMovies(req, res) {
-    // console.log(req.file);
+    
     try {
 
       const data = {

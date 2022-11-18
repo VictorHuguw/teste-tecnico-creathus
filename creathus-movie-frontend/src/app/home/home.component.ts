@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { BsModalRef, BsModalService, ModalOptions } from 'ngx-bootstrap/modal';
 import movieData from '../movies.json';
 import { MoviesService } from '../movies.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-home',
@@ -29,7 +30,9 @@ export class HomeComponent implements OnInit {
   constructor(
     public router:Router,
     public modalService: BsModalService,
-    public movieService:MoviesService) { }
+    public movieService:MoviesService) {
+      
+     }
 
   ngOnInit(): void {
     console.log(this.moviesStatic)
@@ -42,7 +45,10 @@ export class HomeComponent implements OnInit {
   }
 
   openModal(template: TemplateRef<any>) {
-    this.modalRef = this.modalService.show(template);
+    this.modalRef = this.modalService.show(template,{
+      backdrop: true,
+      ignoreBackdropClick: true
+    });
   }
 
   
@@ -58,7 +64,9 @@ export class HomeComponent implements OnInit {
     };
 
     this.modalRef = this.modalService.show(template, {
-      initialState : data
+      initialState : data,
+      backdrop: true,
+      ignoreBackdropClick: true
     });
 
   }
@@ -75,16 +83,33 @@ export class HomeComponent implements OnInit {
     this.movieService.createMovie(formData).subscribe((data)=>{
       
       if(data.code == 200){
-        alert("Dados salvo com sucesso");
+        Swal.fire({
+          title:"Dados salvo com sucesso",
+          icon:'success',
+          showConfirmButton:false,
+          showCancelButton:false,
+          timer:3000
+        })
         this.modalRef?.hide()
         this.getMovies();
       }
 
     }, (error)=>{
       if(error.status == 409){
-        alert("Ja existe um registro salvo com esses dados");
+        Swal.fire({
+          title:"Ja existe um registro salvo com esses dados",
+          icon:'warning',
+          showConfirmButton:false,
+          showCancelButton:false,
+          timer:3000
+        })
+        // Swal.fire("Ja existe um registro salvo com esses dados")
       }
     })
+  }
+
+  clearImage(){
+    this.imageUrl = ""
   }
 
   handleFileInput(event:any) {
