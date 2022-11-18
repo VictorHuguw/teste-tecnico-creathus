@@ -17,19 +17,23 @@ export class HomeComponent implements OnInit {
   imageUrl: any;
   imageUrlDetail: any;
   avatarImage: any = "../../assets/image.png";
-  movies:any = movieData;  
+  moviesStatic:any = movieData;  
+  movies:Array<any>;  
 
   title?: string;
+
+  public myContent:string;
 
   @ViewChild('Image',{static:false}) Image:ElementRef
 
   constructor(
     public router:Router,
-    private modalService: BsModalService,
+    public modalService: BsModalService,
     public movieService:MoviesService) { }
 
   ngOnInit(): void {
-    console.log(this.movies)
+    console.log(this.moviesStatic)
+    this.getMovies();
   }
 
   redirectDetail(id:string){
@@ -41,22 +45,25 @@ export class HomeComponent implements OnInit {
     this.modalRef = this.modalService.show(template);
   }
 
+  
+  
   openModalDetail(template: TemplateRef<any>,item:any) {
     
-    const initialState: ModalOptions = {
-      initialState: {
-        list: [
-          'Open a modal with component',
-          'Pass your data',
-          'Do something else',
-          '...'
-        ],
-        title: 'Modal with component'
-      }
+    const data = {
+      id: item.id,
+      description: item.description,
+      autor: item.autor,
+      img: item.img,
+      title: item.title,
     };
     
-    this.modalRef = this.modalService.show(template,initialState);
+    this.modalRef = this.modalService.show(template, {
+      initialState : data
+    });
+
+
     this.imageUrlDetail = "../../assets/capas/pantera-negra-wakanda-forever.jpg";
+
   }
 
   onSubmit(form:any){
@@ -73,6 +80,7 @@ export class HomeComponent implements OnInit {
       if(data.code == 200){
         alert("Dados salvo com sucesso");
         this.modalRef?.hide()
+        this.getMovies();
       }
 
     }, (error)=>{
@@ -85,9 +93,6 @@ export class HomeComponent implements OnInit {
   handleFileInput(event:any) {
     
     this.fileToUpload = event.target.files[0];
-    console.log('outra file',this.fileToUpload);
-
-    // Show image preview
     let reader = new FileReader();
     reader.onload = (event: any) => {
       this.imageUrl = event.target.result;
@@ -95,6 +100,13 @@ export class HomeComponent implements OnInit {
 
     reader.readAsDataURL(this.fileToUpload);
   
+  }
+
+  getMovies(){
+    this.movieService.getAllMovies().subscribe((result)=>{
+      this.movies = result.data
+      console.log(this.movies);
+    })
   }
 
 }

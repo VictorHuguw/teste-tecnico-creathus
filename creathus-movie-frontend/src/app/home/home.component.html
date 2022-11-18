@@ -1,21 +1,27 @@
 <div class="container">
     <h3 style="margin-top: 50px">Populares</h3>
     <div class="row" style="margin-top: 35px">
-        <div class="col-md-2" *ngFor="let item of movies">
+        <div class="col-md-2" *ngFor="let item of moviesStatic">
             <img src="{{item.img}}" style="width: 140px; cursor: pointer"
             (click)="openModalDetail(templateDetail,item)" />
             <div>
                 <rating [max]="4" [readonly]="true"></rating>
-                <h6 style="margin-left: 18px">{{item.movie}}</h6>
+                <h6 style="margin-left: 18px">{{item.title}}</h6>
+            </div>
+        </div>
+
+        <div class="col-md-2" *ngFor="let item of movies">
+            <img src="../../assets/uploads/{{item.img}}" style="width: 140px; cursor: pointer"
+             />
+            <div>
+                <rating [max]="4" [readonly]="true"></rating>
+                <h6 style="margin-left: 18px">{{item.title}}</h6>
             </div>
         </div>
       
     </div>
 </div>
 
-<a class="float">
-    <i class="bi bi-plus-lg" style="font-size: 42px;" (click)="openModal(template)"></i>
-</a>
 
 <ng-template #template style="background:#1c1c28!important">
     <div class="modal-header">
@@ -64,9 +70,19 @@
         <form>
             <div class="text-center">
                 <!-- <img width="100%" [src]="imageUrlDetail" class="image" style="max-width: 180px; max-height: 220px;"> -->
-                <h3>{{title}}</h3>
+                <h3 >{{ modalService.config.initialState.id }}</h3>
+                <h3 >{{ modalService.config.initialState.description }}</h3>
+                <h3 >{{ modalService.config.initialState.autor }}</h3>
+                <h3 >{{ modalService.config.initialState.title }}</h3>
+                <h3 >{{ modalService.config.initialState.id }}</h3>
+                <img src="{{modalService.config.initialState.img}}" width="100%"  class="image" style="max-width: 180px; max-height: 220px;">
             </div>
             
         </form>
     </div>
 </ng-template>
+
+
+<a class="float">
+    <i class="bi bi-plus-lg" style="font-size: 42px;" (click)="openModal(template)"></i>
+</a>
