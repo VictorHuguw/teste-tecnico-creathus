@@ -45,3 +45,24 @@
 	position: absolute;
 	z-index: -1;
 }
+
+::ng-deep .modal-content {
+    background: #1c1c28 !important;
+    /* border: 1.5px solid grey; */
+    color: white;
+}
+
+.form-control {
+	background-color:#1c1c28;
+	color:white
+}
+
+.btn-primary{
+	background: darkseagreen;
+	border: none;
+	width: 150px;
+}
+
+.form-group{
+	margin-top: 15px;
+}

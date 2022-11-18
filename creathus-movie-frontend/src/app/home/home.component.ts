@@ -47,22 +47,19 @@ export class HomeComponent implements OnInit {
 
   
   
-  openModalDetail(template: TemplateRef<any>,item:any) {
-    
+  openModalDetail(template: TemplateRef<any>,item:any,staticData:any) {
+
     const data = {
       id: item.id,
       description: item.description,
       autor: item.autor,
-      img: item.img,
+      img: staticData?"../../assets/capas/"+item.img:item.img,
       title: item.title,
     };
-    
+
     this.modalRef = this.modalService.show(template, {
       initialState : data
     });
-
-
-    this.imageUrlDetail = "../../assets/capas/pantera-negra-wakanda-forever.jpg";
 
   }
 

@@ -4,41 +4,41 @@
         "title": "Pantera negra para sempre",
         "autor": "Autor 1",
         "description":"Description 1",
-        "img": "../assets/capas/pantera-negra-wakanda-forever.jpg"
+        "img": "pantera-negra-wakanda-forever.jpg"
     },
     {
         "id": "2",
         "title": "Adaop negro",
         "autor": "Autor 1",
         "description":"Description 2",
-        "img": "../assets/capas/adao-negro.jpg"
+        "img": "adao-negro.jpg"
     },
     {
         "id": "3",
         "title": "Halloween ends",
         "autor": "Autor 1",
         "description":"Description 3",
-        "img": "../assets/capas/halloween.jpg"
+        "img": "halloween.jpg"
     },
     {
         "id": "4",
         "title": "Mundo Estranho",
         "autor": "Autor 1",
         "description":"Description 4",
-        "img": "../assets/capas/mundo-estranho.jpg"
+        "img": "mundo-estranho.jpg"
     },
     {
         "id": "5",
         "title": "Sorria",
         "autor": "Autor 1",
         "description":"Description 5",
-        "img": "../assets/capas/sorria.jpg"
+        "img": "sorria.jpg"
     },
     {
         "id": "6",
         "title": "Top Gun",
         "autor": "Autor 1",
         "description":"Description 6",
-        "img": "../assets/capas/top-gun.jpg"
+        "img": "top-gun.jpg"
     }
 ]
