@@ -5,6 +5,19 @@
 Foi utilizado nodejs no backend pela facilidade de organização e estruturação que a ferramenta nos dá além de ter a possibilidade de estarmos utilizando um ORM tão robusto como o sequelize e também a utilização de migrations 
 
 
+Dependencias utilizadas
+
+```
+Package                         Version
+---------------------------------------------------------
+ "cors":                        "^2.8.5",
+ "express":                     "^4.18.2",
+ "multer":                      "^1.4.5-lts.1",
+ "mysql2":                      "^2.3.3",
+ "nodemon":                     "^2.0.20",
+ "sequelize":                   "^6.25.6"
+```
+
 ## Pré requisitos 
 
 1 - Nodejs
@@ -27,12 +40,15 @@ Para executar o projeto backend basta executar os comandos abaixo dentro da past
 ```
 npm install
 ```
-2 - Rodando migrations ou você pode optar por importar o banco de dados 
+2 - Criando banco de dados mysql
+```
+npx sequelize-cli db:create
+```
+3 - Executando migrations 
 ```
 npx sequelize-cli db:migrate
 ```
-
-3 - Rodando servidor
+4 - Rodando servidor
 ```
 npm run start
 ```

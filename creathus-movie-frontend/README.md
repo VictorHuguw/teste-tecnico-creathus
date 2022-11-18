@@ -71,3 +71,7 @@ Após executar os comandos o servidor será levantado no seguinte endereço
 https://localhost:4000
 ``` 
 
+## Sugestões
+
+ Utilizar imagens que estão anexadas no seguinte endereco creathus-movie-frontend\src\assets\imagens-sugeridas para melhor visualização
+
