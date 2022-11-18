@@ -1,4 +1,4 @@
-import { Component, OnInit, TemplateRef } from '@angular/core';
+import { Component, ElementRef, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { BsModalRef, BsModalService, ModalOptions } from 'ngx-bootstrap/modal';
 import movieData from '../movies.json';
@@ -20,6 +20,8 @@ export class HomeComponent implements OnInit {
   movies:any = movieData;  
 
   title?: string;
+
+  @ViewChild('Image',{static:false}) Image:ElementRef
 
   constructor(
     public router:Router,
@@ -58,23 +60,41 @@ export class HomeComponent implements OnInit {
   }
 
   onSubmit(form:any){
-    console.log(form.value);
-    this.movieService.createMovie(form.value).subscribe((data)=>{
-      console.log(data)
+
+    const formData:any = new FormData();
+
+    formData.append('autor',form.value.autor)
+    formData.append('title',form.value.title)
+    formData.append('description',form.value.description)
+    formData.append('img',this.fileToUpload)
+
+    this.movieService.createMovie(formData).subscribe((data)=>{
+      
+      if(data.code == 200){
+        alert("Dados salvo com sucesso");
+        this.modalRef?.hide()
+      }
+
+    }, (error)=>{
+      if(error.status == 409){
+        alert("Ja existe um registro salvo com esses dados");
+      }
     })
   }
 
   handleFileInput(event:any) {
+    
     this.fileToUpload = event.target.files[0];
-    console.log(this.fileToUpload);
+    console.log('outra file',this.fileToUpload);
 
     // Show image preview
     let reader = new FileReader();
     reader.onload = (event: any) => {
       this.imageUrl = event.target.result;
     }
+
     reader.readAsDataURL(this.fileToUpload);
-    this.imageUrl = 0
+  
   }
 
 }

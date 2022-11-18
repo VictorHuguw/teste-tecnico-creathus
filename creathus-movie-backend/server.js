@@ -1,11 +1,17 @@
 const express = require('express')
 const routes = require('./routes')
+const cors = require('cors'); // importando o cors
 
 const app = express()
+
+
+
+app.use(cors());
+app.use(express.json());
 app.use(routes);
 
 require('./src/database')
 
-app.listen(4000,()=>{
+app.listen(3000,()=>{
     console.log("Server started")
 })

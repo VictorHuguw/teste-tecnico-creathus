@@ -27,7 +27,7 @@
         <form #f ="ngForm" (ngSubmit)="onSubmit(f)">
             <div class="text-center">
                 <img width="100%" [src]="imageUrl ? imageUrl : avatarImage" class="image" style="max-width: 180px; max-height: 220px;">
-                <input  #Image type="file" (change)="handleFileInput($event)" style="margin-top:10px" style=""/>
+                <input #Image name="file" type="file" (change)="handleFileInput($event)" style="margin-top:10px" />
 
             </div>
             
@@ -37,13 +37,13 @@
                     placeholder="Enter email" ngModel>
             </div>
             <div class="form-group">
-                <label for="titulo">Titulo</label>
-                <input name="titulo" type="titulo" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                <label for="title">Titulo</label>
+                <input name="title" type="title" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
                     placeholder="Enter email" ngModel>
             </div>
             <div class="form-group">
-                <label for="email">Descricao</label>
-                <input name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                <label for="description">Descricao</label>
+                <input name="description" type="description" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
                     placeholder="Enter email" ngModel>
             </div>
             <div class="text-center" style="margin-top:25px">
